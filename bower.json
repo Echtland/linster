@@ -1,0 +1,17 @@
+{
+  "name": "linster",
+  "homepage": "https://github.com/Echtland/linster",
+  "authors": [
+    "Mathias Maisberger <hiasinho@me.com>"
+  ],
+  "description": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "_vendor"
+  ],
+  "dependencies": {
+    "foundation-sites": "~6.0.6"
+  }
+}
