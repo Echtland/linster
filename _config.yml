@@ -19,3 +19,12 @@ github_username:  jekyll
 
 # Build settings
 markdown: kramdown
+
+gems:
+ - jekyll-coffeescript
+#  - bourbon
+#  - neat
+
+exclude:
+  - "bower_components"
+  - "bower.json"

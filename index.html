@@ -2,22 +2,20 @@
 layout: default
 ---
 
-<div class="home">
+<div class="row align-center align-middle fullscreen">
+  <div class="column medium-10 text-center">
+    <h1>Linster</h1>
+  </div>
+</div>
 
-  <h1 class="page-heading">Posts</h1>
-
-  <ul class="post-list">
+<div class="row align-center align-middle fullscreen">
+  <div class="column medium-6 text-center">
     {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
+    <article>
+      <time datetime="2009-11-13T20:00+00:00">{{ post.date | date: "%b %-d, %Y" }}</time>
+      <h2><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
+    </article>
     {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
+    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+  </div>
 </div>
