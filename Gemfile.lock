@@ -146,6 +146,7 @@ PLATFORMS
 DEPENDENCIES
   bourbon
   github-pages (= 40)
+  jekyll-coffeescript
   json
   neat
 

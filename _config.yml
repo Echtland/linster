@@ -22,8 +22,8 @@ markdown: kramdown
 
 gems:
  - jekyll-coffeescript
- - bourbon
- - neat
+#  - bourbon
+#  - neat
 
 exclude:
   - "bower_components"
