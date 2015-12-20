@@ -10,6 +10,13 @@ layout: default
 
 <div class="row align-center align-middle fullscreen">
   <div class="column medium-6 text-center">
+    {% assign author = site.data.people['hias'] %}
+    <a rel="author"
+      href="https://twitter.com/{{ author.twitter }}"
+      title="{{ author.name }}">
+        {{ author.name }}
+    </a>
+
     {% for post in site.posts %}
     <article>
       <time datetime="2009-11-13T20:00+00:00">{{ post.date | date: "%b %-d, %Y" }}</time>
