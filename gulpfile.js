@@ -1,6 +1,5 @@
 var gulp = require("gulp");
 var gutil = require("gulp-util");
-var git = require('gulp-git');
 var webpack = require("webpack");
 var webpackConfig = require("./webpack.config.js");
 
@@ -37,7 +36,6 @@ gulp.task("webpack:build-dev", function(callback) {
 
 // Production build
 gulp.task("build", ["webpack:build"]);
-gulp.task("deploy", ["build", "stage"]);
 
 gulp.task("webpack:build", function(callback) {
   var myConfig = Object.create(webpackConfig);
@@ -66,11 +64,4 @@ gulp.task("webpack:build", function(callback) {
     }));
     callback();
   });
-});
-
-
-gulp.task('stage', function(){
-  return gulp.src('.')
-    .pipe(git.add())
-    .pipe(git.commit('Test'));
 });
