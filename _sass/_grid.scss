@@ -1,0 +1,31 @@
+$krass-columns: 12;
+$krass-column-width: 100% / $krass-columns;
+
+.container, .row {
+  @include display(flex);
+  @include flex-direction(row);
+  @include flex-wrap(wrap);
+
+  // @include justify-content(center);
+  // @include align-items(center);
+  // @include align-content(center);
+
+  max-width: $global-width;
+  margin: 0 auto;
+}
+
+@for $i from 2 through $krass-columns {
+  .small-#{$i} { width: $krass-column-width * $i; }
+}
+
+@include breakpoint(medium) {
+  @for $i from 2 through $krass-columns {
+    .medium-#{$i} { width: $krass-column-width * $i; }
+  }
+}
+
+@include breakpoint(large) {
+  @for $i from 2 through $krass-columns {
+    .large-#{$i} { width: $krass-column-width * $i; }
+  }
+}

@@ -1,0 +1,3 @@
+.theme-sky {
+  @include radial-gradient($blue, darken($blue, 20), $fallback: $blue);
+}

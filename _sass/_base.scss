@@ -1,3 +1,58 @@
-.fullscreen {
-  min-height: 100vh;
+
+$blue: #53aee0;
+$dark-red: #ed143d;
+
+// @import "vendor/normalize";
+
+@import "foundation/util/util";
+
+$global-width: rem-calc(1200) !default;
+$global-font-size: 100% !default;
+$global-lineheight: 1.5 !default;
+// // $primary-color: #2199e8 !default;
+$primary-color: #fefefe !default;
+$secondary-color: #777 !default;
+$success-color: #3adb76 !default;
+$warning-color: #ffae00 !default;
+$alert-color: #ec5840 !default;
+$light-gray: #e6e6e6 !default;
+$medium-gray: #cacaca !default;
+$dark-gray: #8a8a8a !default;
+$black: #0a0a0a !default;
+$white: #fefefe !default;
+$body-background: $blue !default;
+$body-font-color: $white !default;
+$body-font-family: Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
+$body-antialiased: true !default;
+$global-margin: 1rem !default;
+$global-padding: 1rem !default;
+$global-weight-normal: normal !default;
+$global-weight-bold: bold !default;
+$global-radius: 0 !default;
+
+@import "bourbon/bourbon";
+@import "foundation";
+// @import "grid";
+
+// .container {
+//   @extend .row;
+//   max-width: inherit;
+// }
+
+@import "themes";
+
+@import "images";
+
+@import "blocks/slides";
+
+
+.product {
+  height: 300px;
+  border: 1px solid black;
+  margin-bottom: $global-margin;
+}
+
+.box {
+  border: 1px solid white;
+  display: block;
 }

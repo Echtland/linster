@@ -1,0 +1,35 @@
+var webpack = require('webpack');
+
+module.exports = {
+  context: __dirname + "/_js",
+  entry: "./entry",
+  output: {
+    path: __dirname + "/js",
+    filename: "bundle.js"
+  },
+  plugins: [
+  //   new webpack.BannerPlugin("---\n---\n\n", { raw: true })
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery',
+    }),
+  ],
+
+  resolve: {
+    extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx', '.scss', '.css', 'config.js'],
+  },
+
+  module: {
+    loaders: [
+      {
+        test: /\.jsx?$/,
+        exclude: /(node_modules|bower_components|_vendor)/,
+        loader: 'babel',
+        query: {
+          presets: ['es2015']
+        }
+      }
+    ]
+  }
+}

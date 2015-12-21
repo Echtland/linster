@@ -1,0 +1,3 @@
+.theme-fire {
+  @include radial-gradient($dark-red, darken($dark-red, 20), $fallback: $dark-red);
+}

@@ -2,27 +2,90 @@
 layout: default
 ---
 
-<div class="row align-center align-middle fullscreen">
-  <div class="column medium-10 text-center">
-    <h1>Linster</h1>
+<div class="slide--title theme-fire text-center image-cool">
+  <div class="row">
+    <div class="small-12">
+      <h1>Linster</h1>
+    </div>
   </div>
 </div>
 
-<div class="row align-center align-middle fullscreen">
-  <div class="column medium-6 text-center">
-    {% assign author = site.data.people['hias'] %}
-    <a rel="author"
-      href="https://twitter.com/{{ author.twitter }}"
-      title="{{ author.name }}">
-        {{ author.name }}
-    </a>
+<div class="slide slide--narrow theme-sky text-center">
+  <div class="small-12 column row align-center">
+    <div class="small-12 medium-6 large-4">
+      <h1>Linster</h1>
+      <div class="box">test</div>
+    </div>
+    <div class="small-12 medium-6 large-4">
+      <h1>Linster</h1>
+      <div class="box">test</div>
+    </div>
+    <div class="small-12 medium-6 large-4">
+      <h1>Linster</h1>
+      <div class="box">test</div>
+    </div>
+    <div class="small-12 medium-6 large-4">
+      <h1>Linster</h1>
+      <div class="box">test</div>
+    </div>
+  </div>
+  <div class="small-12 column row align-center">
+    <div class="small-12 medium-6 large-4">
+      <h1>Linster</h1>
+      <div class="box">test</div>
+    </div>
+    <div class="small-12 medium-6 large-4">
+      <h1>Linster</h1>
+      <div class="box">test</div>
+    </div>
+    <div class="small-12 medium-6 large-4">
+      <h1>Linster</h1>
+      <div class="box">test</div>
+    </div>
+    <div class="small-12 medium-6 large-4">
+      <h1>Linster</h1>
+      <div class="box">test</div>
+    </div>
+  </div>
+</div>
 
-    {% for post in site.posts %}
-    <article>
-      <time datetime="2009-11-13T20:00+00:00">{{ post.date | date: "%b %-d, %Y" }}</time>
-      <h2><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
-    </article>
-    {% endfor %}
-    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+<div class="slide slide--narrow theme-fire">
+  <div class="row align-center align-middle">
+    <div class="small-12 medium-10 column text-center">
+      <h1>Linster</h1>
+    </div>
+    <div class="small-12 columns text-center">
+      <div class="row">
+        {% for event in site.data.events %}
+        <div class="small-12 medium-6 large-4 columns">
+          <div class="event">
+            {{ event.title }}
+            {{ event.date | date: "%b %-d, %Y" }}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="slide--middle theme-sky">
+  <div class="row align-center align-middle">
+    <div class="column medium-6 text-center">
+      {% assign author = site.data.people['hias'] %}
+      <a rel="author"
+        href="https://twitter.com/{{ author.twitter }}"
+        title="{{ author.name }}">
+          {{ author.name }}
+      </a>
+
+      {% for post in site.posts %}
+      <article>
+        <time datetime="2009-11-13T20:00+00:00">{{ post.date | date: "%b %-d, %Y" }}</time>
+        <h2><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
+      </article>
+      {% endfor %}
+      <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+    </div>
   </div>
 </div>
