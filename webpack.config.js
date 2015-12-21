@@ -9,7 +9,6 @@ module.exports = {
     filename: "bundle.js"
   },
   plugins: [
-    new webpack.BannerPlugin("---\n---\n\n", { raw: true }),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',

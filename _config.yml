@@ -26,5 +26,9 @@ gems:
 #  - neat
 
 exclude:
+  - "_js"
   - "bower_components"
   - "bower.json"
+  - "gulpfile.js"
+  - "package.json"
+  - "webpack.config.js"
