@@ -1,4 +1,5 @@
 var webpack = require('webpack');
+var path = require('path');
 
 module.exports = {
   context: __dirname + "/_js",
@@ -8,7 +9,7 @@ module.exports = {
     filename: "bundle.js"
   },
   plugins: [
-  //   new webpack.BannerPlugin("---\n---\n\n", { raw: true })
+    new webpack.BannerPlugin("---\n---\n\n", { raw: true }),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
@@ -22,6 +23,11 @@ module.exports = {
 
   module: {
     loaders: [
+      { test: /\.css$/, loader: "style!css" },
+      {
+        test: /\.scss$/,
+        loaders: ["style", "css", "sass"]
+      },
       {
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components|_vendor)/,
@@ -31,5 +37,9 @@ module.exports = {
         }
       }
     ]
+  },
+
+  sassLoader: {
+    includePaths: [path.resolve(__dirname, "./node_modules/foundation-sites/scss/")]
   }
 }
