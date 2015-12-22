@@ -2,7 +2,9 @@
 layout: default
 ---
 
-<div class="slide--title theme-fire text-center image-cool">
+{% image anja.png %}
+
+<div class="slide--title theme-purple text-center image-cool">
   <div class="row">
     <div class="small-12">
       <h1>Linster</h1>
@@ -10,49 +12,23 @@ layout: default
   </div>
 </div>
 
-<div class="slide slide--narrow theme-sky text-center">
-  <div class="small-12 column row align-center">
-    <div class="small-12 medium-6 large-4">
-      <h1>Linster</h1>
-      <div class="box">test</div>
-    </div>
-    <div class="small-12 medium-6 large-4">
-      <h1>Linster</h1>
-      <div class="box">test</div>
-    </div>
-    <div class="small-12 medium-6 large-4">
-      <h1>Linster</h1>
-      <div class="box">test</div>
-    </div>
-    <div class="small-12 medium-6 large-4">
-      <h1>Linster</h1>
-      <div class="box">test</div>
-    </div>
-  </div>
-  <div class="small-12 column row align-center">
-    <div class="small-12 medium-6 large-4">
-      <h1>Linster</h1>
-      <div class="box">test</div>
-    </div>
-    <div class="small-12 medium-6 large-4">
-      <h1>Linster</h1>
-      <div class="box">test</div>
-    </div>
-    <div class="small-12 medium-6 large-4">
-      <h1>Linster</h1>
-      <div class="box">test</div>
-    </div>
-    <div class="small-12 medium-6 large-4">
-      <h1>Linster</h1>
-      <div class="box">test</div>
+<div class="slide slide--narrow theme-cloudy">
+  <div class="row align-center align-middle">
+    <div class="small-12 medium-10 column text-center">
+      <blockquote>
+        <p>Mit einer  müden Einstellung, kann man kein lustiges Leben führen.</p>
+        <footer>
+          <cite>Eine erleuchtete Person</cite>
+        </footer>
+      </blockquote>
     </div>
   </div>
 </div>
 
-<div class="slide slide--narrow theme-fire">
+<div class="slide slide--narrow theme-purple">
   <div class="row align-center align-middle">
     <div class="small-12 medium-10 column text-center">
-      <h1>Linster</h1>
+      <h1>Rendezvous</h1>
     </div>
     <div class="small-12 columns text-center">
       <div class="row">
@@ -69,7 +45,38 @@ layout: default
   </div>
 </div>
 
-<div class="slide--middle theme-sky">
+<div class="slide slide--narrow theme-cloudy">
+  <div class="row align-center align-middle">
+    <div class="small-12 medium-10 column text-center">
+      <h1>Restaurants</h1>
+    </div>
+  </div>
+</div>
+
+<div class="slide slide--narrow theme-winter">
+  <div class="row align-center align-middle">
+    <div class="small-12 medium-10 column text-center">
+      <h1>Produkte</h1>
+    </div>
+  </div>
+</div>
+
+<div class="slide slide--narrow theme-purple">
+  <div class="row align-center align-middle">
+    <div class="small-12 medium-10 column text-center">
+      <h1>Newsletter</h1>
+      <form class="myform" action="//andiemutigen.us11.list-manage2.com/subscribe/post" method="POST">
+        <input type="hidden" name="u" value="49802fcb274161202afdc8c64">
+        <input type="hidden" name="id" value="09fbd0300f">
+        <input type="hidden" name="b_49802fcb274161202afdc8c64_09fbd0300f" value="">
+        <input type="email" name="EMAIL" placeholder="E-Mail eintragen" required>
+        <input type="submit" value="Newsletter bestellen" name="submit">
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="slide--middle theme-cloudy">
   <div class="row align-center align-middle">
     <div class="column medium-6 text-center">
       {% assign author = site.data.people['hias'] %}
@@ -86,6 +93,14 @@ layout: default
       </article>
       {% endfor %}
       <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+    </div>
+  </div>
+</div>
+
+<div class="slide--middle slide--narrow theme-cloudy">
+  <div class="row align-center align-middle">
+    <div class="column medium-6 text-center">
+      <p>© #lealinster | Kontakt | Impressum | Datenschutz</p>
     </div>
   </div>
 </div>
