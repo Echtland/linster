@@ -1,0 +1,45 @@
+// Bitters 1.1.0
+// http://bitters.bourbon.io
+// Copyright 2013-2015 thoughtbot, inc.
+// MIT License
+
+@import "variables";
+@import "neat/neat";
+@import "mixins";
+@import "grid";
+
+@mixin global-styles {
+  html,
+  body {
+    font-size: $base-font-size;
+    box-sizing: border-box;
+  }
+
+  // Set box-sizing globally to handle padding and border widths
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+
+  body {
+    padding: 0;
+    margin: 0;
+    font-family: $base-font-family;
+    font-weight: $base-weight-normal;
+    line-height: $base-line-height;
+    color: $base-font-color;
+    background: $base-background-color;
+  }
+}
+
+@include global-styles;
+// @include base-grid;
+@include base-grid-flex;
+
+@import "buttons";
+@import "forms";
+@import "lists";
+@import "tables";
+@import "typography";
+

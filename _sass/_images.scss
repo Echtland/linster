@@ -1,3 +1,5 @@
-.image-cool {
-  background-image: url('http://lorempixel.com/1920/1200/food/2');
+@mixin images-all {
+  .image-cool {
+    background-image: url('http://lorempixel.com/1920/1200/food/2');
+  }
 }

@@ -1,0 +1,8 @@
+@mixin themes-winter {
+  .theme-winter {
+    $theme-background: $white;
+    color: $dark-gray;
+    background-color: $theme-background;
+    // @include radial-gradient($theme-background, darken($theme-background, 20), $fallback: $theme-background);
+  }
+}

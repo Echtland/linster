@@ -1,0 +1,24 @@
+@mixin base-global {
+  html,
+  body {
+    font-size: $base-font-size;
+    box-sizing: border-box;
+  }
+
+  // Set box-sizing globally to handle padding and border widths
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+
+  body {
+    padding: 0;
+    margin: 0;
+    font-family: $base-font-family;
+    font-weight: $base-weight-normal;
+    line-height: $base-line-height;
+    color: $base-font-color;
+    background: $base-background-color;
+  }
+}

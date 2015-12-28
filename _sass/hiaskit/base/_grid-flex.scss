@@ -1,0 +1,28 @@
+$grid-column-width-px: $grid-max-width / $grid-columns;
+$grid-column-width: percentage($grid-column-width-px / $grid-max-width);
+
+@mixin base-grid-flex {
+  .container {
+    margin: 0 auto;
+    max-width: $grid-max-width;
+  }
+
+  .row {
+    @include display(flex);
+    @include flex-wrap(wrap);
+  }
+
+  .align-center {
+    @include justify-content(center);
+  }
+
+  .column, .columns {
+    @include flex(1 0 100%);
+  }
+
+  @include flex-grid(small);
+  @include flex-grid(medium);
+  @include flex-grid(large);
+  // @include flex-grid(xlarge);
+  // @include flex-grid(xxlarge);
+}

@@ -1,0 +1,18 @@
+@import "base/mixins";
+@import "base/global";
+@import "base/grid-flex";
+@import "base/buttons";
+@import "base/forms";
+@import "base/lists";
+@import "base/tables";
+@import "base/typography";
+
+@mixin base-all {
+  @include base-global;
+  @include base-grid-flex;
+  @include base-buttons;
+  @include base-forms;
+  @include base-lists;
+  @include base-tables;
+  @include base-typography;
+}

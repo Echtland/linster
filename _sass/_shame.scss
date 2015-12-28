@@ -1,0 +1,63 @@
+@mixin blocks-offcanvas {
+  $offcanvas-background-color: $black;
+  $offcanvas-color: $white;
+  $offcanvas-padding: $base-padding;
+
+  .page {
+    @include transition(filter $base-duration ease-out, -webkit-filter $base-duration ease-out);
+
+    &--blurry {
+      @include filter(blur(10px));
+    }
+  }
+
+  .offcanvas-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background-color: rgba(white, 0.5);
+    color: $dark-gray;
+  }
+
+  .offcanvas {
+    display: none;
+    font-size: 2rem;
+    width: 100%;
+    position: fixed;
+    z-index: 9999999999;
+    height: 100%;
+    top: 0;
+    color: $offcanvas-color;
+    background-color: rgba($offcanvas-background-color, 0);
+    text-align: center;
+
+    @include justify-content(center);
+    @include align-items(center);
+    @include padding($offcanvas-padding null);
+    @include transition(background $base-duration ease-out);
+
+    &--open {
+      @include display(flex);
+      background-color: rgba($offcanvas-background-color, 0.5);
+    }
+
+    &:before {
+      display: block;
+      content: "x";
+      position: fixed;
+      top: $offcanvas-padding;
+      right: $offcanvas-padding;
+      width: 50px;
+      height: 50px;
+      background-color: rgba($offcanvas-background-color, 0.3);
+      font-size: 2rem;
+      padding: 0;
+      box-sizing: border-box;
+      cursor: pointer;
+    }
+  }
+}
+
+@mixin shame-on-me {
+  @include blocks-offcanvas;
+}

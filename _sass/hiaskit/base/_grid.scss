@@ -1,0 +1,48 @@
+@mixin base-grid {
+  .container {
+    @include outer-container;
+  }
+
+  .row {
+    @include row();
+  }
+
+  .column, .columns {
+    @include omega(3n);
+  }
+
+  @for $col from 1 through $grid-columns {
+    .small-#{$col} {
+      @include span-columns($col);
+    }
+  }
+
+  @include bp(medium) {
+    @for $col from 1 through $grid-columns {
+      .medium-#{$col} {
+        @include span-columns($col);
+      }
+    }
+  }
+
+  @include bp(large) {
+    @for $col from 1 through $grid-columns {
+      .large-#{$col} {
+        @include span-columns($col);
+      }
+    }
+  }
+
+  // .row--center {
+  //   .column, .columns {
+  //     margin-left: auto;
+  //     margin-right: $gutter;
+  //     float: none;
+  //     display: inline-block;
+
+  //     &:last-child {
+  //       margin-right: auto;
+  //     }
+  //   }
+  // }
+}

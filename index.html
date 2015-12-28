@@ -2,103 +2,175 @@
 layout: default
 ---
 
-<div class="slide--title theme-purple text-center image-cool">
-  <div class="row">
-    <div class="small-12">
-      <h1>Linster</h1>
-    </div>
-  </div>
-</div>
+<button class="offcanvas-toggle">Menü</button>
+<nav class="offcanvas default-ul">
+  <ul>
+    <li>Home</li>
+    <li>Other</li>
+  </ul>
+</nav>
 
-<div class="slide slide--narrow theme-cloudy">
-  <div class="row align-center align-middle">
-    <div class="small-12 medium-10 column text-center">
-      <blockquote>
-        <p>Mit einer  müden Einstellung, kann man kein lustiges Leben führen.</p>
-        <footer>
-          <cite>Eine erleuchtete Person</cite>
-        </footer>
-      </blockquote>
-    </div>
-  </div>
-</div>
 
-<div class="slide slide--narrow theme-purple">
-  <div class="row align-center align-middle">
-    <div class="small-12 medium-10 column text-center">
-      <h1>Rendezvous</h1>
-    </div>
-    <div class="small-12 columns text-center">
+<div class="page">
+  <div class="slide slide--middle theme-purple image-cool">
+    <div class="container">
       <div class="row">
-        {% for event in site.data.events %}
-        <div class="small-12 medium-6 large-4 columns">
-          <div class="event">
-            {{ event.title }}
-            {{ event.date | date: "%b %-d, %Y" }}
-          </div>
+        <div class="small-12">
+          <h1>Linster</h1>
         </div>
-        {% endfor %}
       </div>
     </div>
   </div>
-</div>
 
-<div class="slide slide--narrow theme-cloudy">
-  <div class="row align-center align-middle">
-    <div class="small-12 medium-10 column text-center">
-      <h1>Restaurants</h1>
+  <div class="slide slide--narrow theme-cloudy">
+    <div class="container">
+      <div class="row">
+        <div class="small-12">
+          <blockquote>
+            <p>Mit einer  müden Einstellung, kann man kein lustiges Leben führen.</p>
+            <footer>
+              <cite>Eine erleuchtete Person</cite>
+            </footer>
+          </blockquote>
+
+          <div class="row align-center">
+            <div class="medium-3 column">
+              <div class="hover-tile-outer">
+                <div class="hover-tile-container">
+                  <div class="hover-tile hover-tile-visible"></div>
+                  <div class="hover-tile hover-tile-hidden">
+                    <h4>Hidden Copy</h4>
+                    <p>Lorem ipsum dolor provident eligendi fugiat ad exercitationem.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="medium-3 column">
+              <div class="hover-tile-outer">
+                <div class="hover-tile-container">
+                  <div class="hover-tile hover-tile-visible"></div>
+                  <div class="hover-tile hover-tile-hidden">
+                    <h4>Hidden Copy</h4>
+                    <p>Lorem ipsum dolor provident eligendi fugiat ad exercitationem.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="slide slide--narrow theme-winter">
-  <div class="row align-center align-middle">
-    <div class="small-12 medium-10 column text-center">
-      <h1>Produkte</h1>
+  <div class="slide slide--narrow theme-purple">
+    <div class="container">
+      <div class="row">
+        <div class="small-12">
+          <h1>Rendezvous</h1>
+        </div>
+        <div class="small-12">
+          <div class="row">
+            {% for event in site.data.events %}
+            <div class="small-12 medium-6 large-4 column">
+              <div class="event">
+                {{ event.title }}
+                {{ event.date | date: "%b %-d, %Y" }}
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="slide slide--narrow theme-purple">
-  <div class="row align-center align-middle">
-    <div class="small-12 medium-10 column text-center">
-      <h1>Newsletter</h1>
-      <form class="myform" action="//andiemutigen.us11.list-manage2.com/subscribe/post" method="POST">
-        <input type="hidden" name="u" value="49802fcb274161202afdc8c64">
-        <input type="hidden" name="id" value="09fbd0300f">
-        <input type="hidden" name="b_49802fcb274161202afdc8c64_09fbd0300f" value="">
-        <input type="email" name="EMAIL" placeholder="E-Mail eintragen" required>
-        <input type="submit" value="Newsletter bestellen" name="submit">
-      </form>
+  <div class="slide slide--narrow theme-cloudy">
+    <div class="container">
+      <div class="row text-center">
+        <div class="small-12">
+          <h1>Restaurants</h1>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="slide--middle theme-cloudy">
-  <div class="row align-center align-middle">
-    <div class="column medium-6 text-center">
-      {% assign author = site.data.people['hias'] %}
-      <a rel="author"
-        href="https://twitter.com/{{ author.twitter }}"
-        title="{{ author.name }}">
-          {{ author.name }}
-      </a>
-
-      {% for post in site.posts %}
-      <article>
-        <time datetime="2009-11-13T20:00+00:00">{{ post.date | date: "%b %-d, %Y" }}</time>
-        <h2><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
-      </article>
-      {% endfor %}
-      <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+  <div class="slide slide--narrow theme-cloudy">
+    <div class="container">
+      <div class="row text-center">
+        <div class="small-12">
+          <h1>Produkte</h1>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="slide--middle slide--narrow theme-cloudy">
-  <div class="row align-center align-middle">
-    <div class="column medium-6 text-center">
-      <p>© #lealinster | Kontakt | Impressum | Datenschutz</p>
+  <div class="slide slide--narrow theme-purple">
+    <div class="container">
+      <div class="row text-center">
+        <div class="small-12">
+          <h1>Newsletter</h1>
+          <form class="myform" action="//andiemutigen.us11.list-manage2.com/subscribe/post" method="POST">
+            <input type="hidden" name="u" value="49802fcb274161202afdc8c64">
+            <input type="hidden" name="id" value="09fbd0300f">
+            <input type="hidden" name="b_49802fcb274161202afdc8c64_09fbd0300f" value="">
+            <input type="email" name="EMAIL" placeholder="E-Mail eintragen" required>
+            <input type="submit" value="Newsletter bestellen" name="submit">
+          </form>
+        </div>
+      </div>
     </div>
   </div>
+
+  <div class="slide slide--narrow theme-cloudy">
+    <div class="container">
+      <div class="row text-center">
+        <div class="small-12">
+          {% assign author = site.data.people['hias'] %}
+          <a rel="author"
+            href="https://twitter.com/{{ author.twitter }}"
+            title="{{ author.name }}">
+              {{ author.name }}
+          </a>
+
+          {% for post in site.posts %}
+          <article>
+            <time datetime="2009-11-13T20:00+00:00">{{ post.date | date: "%b %-d, %Y" }}</time>
+            <h2><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
+          </article>
+          {% endfor %}
+          <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer" role="contentinfo">
+    <div class="footer-logo">
+      <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="Logo image">
+    </div>
+    <div class="footer-links">
+      <ul>
+        <li><h3>Content</h3></li>
+        <li><a href="javascript:void(0)">About</a></li>
+        <li><a href="javascript:void(0)">Contact</a></li>
+        <li><a href="javascript:void(0)">Products</a></li>
+      </ul>
+      <ul>
+        <li><h3>Follow Us</h3></li>
+        <li><a href="javascript:void(0)">Facebook</a></li>
+        <li><a href="javascript:void(0)">Twitter</a></li>
+        <li><a href="javascript:void(0)">YouTube</a></li>
+      </ul>
+      <ul>
+        <li><h3>Legal</h3></li>
+        <li><a href="javascript:void(0)">Terms and Conditions</a></li>
+        <li><a href="javascript:void(0)">Privacy Policy</a></li>
+      </ul>
+    </div>
+
+    <hr>
+
+    <p>Disclaimer area lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, nostrum repudiandae saepe.</p>
+  </footer>
 </div>
+

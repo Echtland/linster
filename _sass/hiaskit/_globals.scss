@@ -1,0 +1,98 @@
+// Colors
+$white:                         #fefefe !default;
+$blue:                          #53aee0 !default;
+$dark-red:                      #ed143d !default;
+$purple:                        #732382 !default;
+$black:                         #0a0a0a !default;
+$dark-gray:                     #424242 !default;
+$medium-gray:                   #999 !default;
+$light-gray:                    #ededed !default;
+
+// @if mixin-exists(custom-globals) {
+//   @include custom-globals;
+// }
+
+// Typography
+$base-font-family:              $helvetica !default;
+
+// Font Sizes
+$base-font-size:                1em !default;
+
+$base-weight-normal:            normal !default;
+
+// Line height
+$base-line-height:              1.5 !default;
+
+// Other Sizes
+$base-border-radius:            3px !default;
+$base-spacing:                  1rem !default;
+$large-spacing:                 $base-spacing * 2 !default;
+$small-spacing:                 $base-spacing / 2 !default;
+$base-z-index:                  0 !default;
+$base-padding:                  $base-spacing !default;
+
+// Font Colors
+$light-font-color:              $white !default;
+$dark-font-color:               $dark-gray !default;
+$base-font-color:               $dark-font-color !default;
+$action-color:                  $blue !default;
+
+// Border
+$base-border-color:             $light-gray !default;
+$base-border:                   1px solid $base-border-color !default;
+
+// Background Colors
+$base-background-color:         $white !default;
+$secondary-background-color:    tint($base-border-color, 75%) !default;
+
+// Forms
+$form-box-shadow:               inset 0 1px 3px rgba(#000, 0.06) !default;
+$form-box-shadow-focus:         $form-box-shadow, 0 0 5px adjust-color($action-color, $lightness: -5%, $alpha: -0.3) !default;
+
+// Animations
+$base-duration:                 150ms !default;
+$base-timing:                   ease !default;
+
+// Grid
+$screen-sizes: (
+  small: 0,
+  medium: em(640),
+  large: em(1024),
+  xlarge: em(1200),
+  xxlarge: em(1440),
+) !default;
+
+$breakpoints: $screen-sizes;
+
+$grid-max-width:                map-get($screen-sizes, large);
+$grid-columns:                  12;
+$grid-gutter:                   1rem;
+
+// Neat Breakpoints
+$medium-screen:                 map-get($breakpoints, medium);
+$large-screen:                  map-get($breakpoints, large);
+$xlarge-screen:                 map-get($breakpoints, xlarge);
+$xxlarge-screen:                map-get($breakpoints, xxlarge);
+
+// Headers
+$heading-font-family:           $base-font-family;
+$heading-line-height:           1.4;
+
+$heading-sizes: (
+  small: (
+    'h1': 24,
+    'h2': 20,
+    'h3': 19,
+    'h4': 18,
+    'h5': 17,
+    'h6': 16,
+  ),
+  medium: (
+    'h1': 48,
+    'h2': 40,
+    'h3': 31,
+    'h4': 25,
+    'h5': 20,
+    'h6': 16,
+  ),
+);

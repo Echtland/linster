@@ -1,0 +1,22 @@
+@mixin themes-cloudy {
+  .theme-cloudy {
+    $theme-background: $light-gray;
+    $theme-color: $dark-gray;
+
+    color: $theme-color;
+    background-color: $theme-background;
+    // @include radial-gradient($theme-background, darken($theme-background, 20), $fallback: $theme-background);
+
+    a {
+      color: $theme-color;
+      text-decoration: none;
+      transition: color $base-duration $base-timing;
+
+      &:active,
+      &:focus,
+      &:hover {
+        color: tint($theme-color, 15%);
+      }
+    }
+  }
+}

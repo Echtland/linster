@@ -1,0 +1,15 @@
+@import "blocks/island";
+@import "blocks/navigation";
+@import "blocks/slides";
+@import "blocks/hover-tile";
+@import "blocks/bullets";
+@import "blocks/footer";
+
+@mixin blocks-all {
+  @include blocks-island;
+  @include blocks-navigation;
+  @include blocks-slides;
+  @include blocks-hover-tile;
+  @include blocks-bullets;
+  @include blocks-footer;
+}

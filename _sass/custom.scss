@@ -1,0 +1,24 @@
+$white:                         #fefefe !default;
+$blue:                          #53aee0 !default;
+$dark-red:                      #ed143d !default;
+$purple:                        #732382 !default;
+$black:                         #0a0a0a !default;
+$dark-gray:                     #424242 !default;
+$medium-gray:                   #999 !default;
+$light-gray:                    #ededed !default;
+
+$base-background-color: $blue;
+$base-font-color: $white;
+$action-color: $white;
+
+@import "hiaskit/hiaskit";
+
+@import "images";
+@import "shame";
+
+@include base-all;
+@include blocks-all;
+@include themes-all;
+@include images-all;
+
+@include shame-on-me;

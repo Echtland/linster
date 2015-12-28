@@ -1,0 +1,7 @@
+@mixin themes-fire {
+  .theme-fire {
+    $theme-background: $dark-red;
+    background-color: $theme-background;
+    // @include radial-gradient($theme-background, darken($theme-background, 20), $fallback: $theme-background);
+  }
+}

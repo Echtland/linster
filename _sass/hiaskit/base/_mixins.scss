@@ -1,0 +1,61 @@
+@mixin bp($value) {
+  $bp: map-get($breakpoints, $value);
+
+  @include media($bp) {
+    @content;
+  }
+}
+
+@mixin media($size) {
+  $min-width: map-get($screen-sizes, $size);
+
+  @media screen and (min-width: $min-width) {
+    @content;
+  }
+}
+
+@mixin flex-grid-column($columns, $size) {
+  $column-width: $grid-column-width * $columns;
+
+  .#{$size}-#{$columns} {
+    @extend .#{$size};
+    width: $column-width;
+    @include flex-basis($column-width);
+  }
+}
+
+@mixin flex-grid-columns($size) {
+  $half-gutter: $grid-gutter / 2;
+
+  .#{$size} {
+    box-sizing: border-box;
+    @include flex(0 0 auto);
+    @include padding(null $half-gutter);
+  }
+
+  @for $i from 1 through $grid-columns {
+    @include flex-grid-column($i, $size);
+  }
+}
+
+@mixin flex-grid($size) {
+  $min-width: map-get($screen-sizes, $size);
+
+  @if $min-width == 0 {
+    @include flex-grid-columns($size);
+
+  } @else {
+    @include media($size) {
+      @include flex-grid-columns($size);
+    }
+  }
+}
+
+@mixin outer-container($local-max-width: $grid-max-width) {
+  @include clearfix;
+  max-width: $local-max-width;
+  margin: {
+    left: auto;
+    right: auto;
+  }
+}

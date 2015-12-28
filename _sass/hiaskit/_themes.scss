@@ -1,0 +1,13 @@
+@import "themes/cloudy";
+@import "themes/fire";
+@import "themes/purple";
+@import "themes/sky";
+@import "themes/winter";
+
+@mixin themes-all {
+  @include themes-cloudy;
+  @include themes-fire;
+  @include themes-purple;
+  @include themes-sky;
+  @include themes-winter;
+}

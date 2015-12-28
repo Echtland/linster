@@ -1,10 +1,39 @@
-var gulp = require("gulp");
-var gutil = require("gulp-util");
-var webpack = require("webpack");
-var webpackConfig = require("./webpack.config.js");
+var gulp = require("gulp"),
+    gutil = require("gulp-util"),
+    clean = require("gulp-clean"),
+    shell = require("gulp-shell"),
+    watch = require("gulp-watch"),
+    livereload = require("gulp-livereload"),
+    webpack = require("webpack"),
+    webpackConfig = require("./webpack.config.js");
+
+
+paths = {
+  clean: [
+    "./tmp",
+    "./_site"
+  ]
+};
 
 // The development server (the recommended option for development)
-gulp.task("default", ["webpack-dev-server"]);
+gulp.task("default", ["build-dev", "serve", "watch"]);
+
+gulp.task("clean", function() {
+  return gulp.src(paths.clean, {read: false})
+    .pipe(clean());
+});
+
+gulp.task("serve", shell.task([
+  "jekyll server --baseurl ''"
+]));
+
+gulp.task('watch', function(){
+  livereload.listen();
+
+  watch(['./_site/**/*'], function(files) {
+    livereload.reload();
+  });
+});
 
 gulp.task("build-dev", ["webpack:build-dev"], function() {
   gulp.watch(["_js/**/*"], ["webpack:build-dev"]);
