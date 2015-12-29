@@ -11,20 +11,12 @@
     }
   }
 
-  .offcanvas-toggle {
-    position: fixed;
-    top: 1rem;
-    right: 1rem;
-    background-color: rgba(white, 0.5);
-    color: $dark-gray;
-  }
-
   .offcanvas {
     display: none;
     font-size: 2rem;
     width: 100%;
     position: fixed;
-    z-index: 9999999999;
+    z-index: 100;
     height: 100%;
     top: 0;
     color: $offcanvas-color;
@@ -40,24 +32,364 @@
       @include display(flex);
       background-color: rgba($offcanvas-background-color, 0.5);
     }
+  }
+}
 
+@mixin blocks-hamburger {
+  $color: $dark-gray;     // icon color
+  $animation: 0.6s; // animation speed
+  $scale: 0.6;        // icon scale 68/68 default
+  $burger-size: 68px;
+  $burger-half-size: $burger-size / 2;
+
+  @keyframes rotate-out {
+    0% {
+      transform: rotate(0deg);
+    }
+    40% {
+      transform: rotate(180deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes rotate-in {
+    0% {
+      transform: rotate(360deg);
+    }
+    40% {
+      transform: rotate(180deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+
+  @keyframes dash-in {
+    0% {
+      stroke-dashoffset: 240;
+    }
+    40% {
+      stroke-dashoffset: 240;
+    }
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+  @keyframes dash-out {
+    0% {
+      stroke-dashoffset: 0;
+    }
+    40% {
+      stroke-dashoffset: 240;
+    }
+    100% {
+      stroke-dashoffset: 240;
+    }
+  }
+
+  @keyframes bun-top-out {
+    0% {
+      left: 0;
+      top: 0;
+      transform: rotate(0deg);
+    }
+    20% {
+      left: 0;
+      top: 0;
+      transform: rotate(15deg);
+    }
+    80% {
+      left: -5px;
+      top: 0;
+      transform: rotate(-60deg);
+    }
+    100% {
+      left: -5px;
+      top: 1px;
+      transform: rotate(-45deg);
+      background: $white;
+    }
+  }
+
+  @keyframes bun-bot-out {
+    0% {
+      left: 0;
+      transform: rotate(0deg);
+    }
+    20% {
+      left: 0;
+      transform: rotate(-15deg);
+    }
+    80% {
+      left: -5px;
+      transform: rotate(60deg);
+    }
+    100% {
+      left: -5px;
+      transform: rotate(45deg);
+      background: $white;
+    }
+  }
+
+
+  @keyframes bun-top-in {
+    0% {
+      left: -5px;
+      bot: 0;
+      transform: rotate(-45deg);
+    }
+    20% {
+      left: -5px;
+      bot: 0;
+      transform: rotate(-60deg);
+    }
+    80% {
+      left: 0;
+      bot: 0;
+      transform: rotate(15deg);
+    }
+    100% {
+      left: 0;
+      bot: 1px;
+      transform: rotate(0deg);
+    }
+  }
+
+  @keyframes bun-bot-in {
+    0% {
+      left: -5px;
+      transform: rotate(45deg);
+    }
+    20% {
+      left: -5px;
+      bot: 0;
+      transform: rotate(60deg);
+    }
+    80% {
+      left: 0;
+      bot: 0;
+      transform: rotate(-15deg);
+    }
+    100% {
+      left: 0;
+      transform: rotate(0deg);
+    }
+  }
+
+  @keyframes burger-fill-in {
+    0% {
+      width: 0;
+      left: 36px;
+    }
+    40% {
+      width: 0;
+      left: 40px;
+    }
+    80% {
+      width: 36px;
+      left: -6px;
+    }
+    100% {
+      width: 36px;
+      left: 0px;
+    }
+  }
+
+  @keyframes burger-fill-out {
+    0% {
+      width: 36px;
+      left: 0px;
+    }
+    20% {
+      width: 42px;
+      left: -6px;
+    }
+
+    40% {
+      width: 0;
+      left: 40px;
+    }
+
+    100% {
+      width: 0;
+      left: 36px;
+    }
+  }
+
+  .hamburger {
+    transform: scale($scale);
+    position: fixed;
+    display: block;
+    top: 1rem;
+    right: 1rem;
+    @include size($burger-size);
+    @include user-select(none);
+    z-index: 110;
+  }
+
+  // transition mask
+  .path-burger {
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include size($burger-size);
+    // two masks because... browser support.
+    mask: url(#mask);
+    -webkit-mask-box-image: url(https://raygun.io/upload/mask.svg);
+  }
+
+  .animate-path {
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include size($burger-size);
+  }
+
+  // what this does is create a small square that I then rotate behind an svg mask, giving the apparence of the line animating
+  .path-rotation {
+    @include size($burger-half-size);
+    margin: $burger-half-size $burger-half-size 0 0;
+    transform: rotate(0deg);
+    transform-origin: 100% 0;
     &:before {
+      content: '';
       display: block;
-      content: "x";
-      position: fixed;
-      top: $offcanvas-padding;
-      right: $offcanvas-padding;
-      width: 50px;
-      height: 50px;
-      background-color: rgba($offcanvas-background-color, 0.3);
-      font-size: 2rem;
-      padding: 0;
-      box-sizing: border-box;
-      cursor: pointer;
+      width: 30px;
+      height: $burger-half-size;
+      margin: 0 4px 0 0;
+      background: $color;
+    }
+  }
+
+  // offset moves
+  // dasharray is the dash size
+  // need to be able to control dash space size.
+
+  .hamburger.is-open {
+    .path {
+      animation: dash-in $animation linear normal;
+      animation-fill-mode:forwards;
+    }
+    .animate-path {
+      animation: rotate-in $animation linear normal;
+      animation-fill-mode:forwards;
+    }
+  }
+
+  .hamburger.is-closed {
+    .path {
+      animation: dash-out $animation linear normal;
+      animation-fill-mode:forwards;
+    }
+    .animate-path {
+      animation: rotate-out $animation linear normal;
+      animation-fill-mode:forwards;
+    }
+  }
+
+  .path {
+    stroke-dasharray: 240;
+    stroke-dashoffset: 240;
+    stroke-linejoin: round;
+  }
+
+  // All good burgers need filling!
+
+  .burger-icon {
+    position: absolute;
+    padding: 20px 16px;
+    @include size($burger-size);
+  }
+
+  .burger-container {
+    position: relative;
+    height: 28px;
+    width: 36px;
+  }
+
+  .burger-bun-top,
+  .burger-bun-bot,
+  .burger-filling {
+    position: absolute;
+    display: block;
+    height: 4px;
+    width: 36px;
+    border-radius: 2px;
+    background: $color;
+  }
+
+  .burger-bun-top {
+    top: 0;
+    transform-origin: 34px 2px;
+  }
+
+  .burger-bun-bot {
+    bottom: 0;
+    transform-origin: 34px 2px;
+  }
+  //.burger-filling {
+  //  @include transition(all,($animation/2.5),ease-in-//out);
+  //}
+  // relative parent is the button
+  .burger-filling {
+    top: 12px;
+  }
+
+  // burger ring container
+  .burger-ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include size($burger-size);
+  }
+
+  .svg-ring {
+    @include size($burger-size);
+  }
+
+
+  // bun animations
+  .hamburger.is-open {
+    .burger-bun-top {
+      animation: bun-top-out $animation linear normal;
+      animation-fill-mode:forwards;
+    }
+    .burger-bun-bot {
+      animation: bun-bot-out $animation linear normal;
+      animation-fill-mode:forwards;
+    }
+  }
+  .hamburger.is-closed {
+    .burger-bun-top {
+      animation: bun-top-in $animation linear normal;
+      animation-fill-mode:forwards;
+    }
+    .burger-bun-bot {
+      animation: bun-bot-in $animation linear normal;
+      animation-fill-mode:forwards;
+    }
+  }
+
+
+  // burger filling
+  .hamburger.is-open {
+    .burger-filling {
+      animation: burger-fill-out $animation linear normal;
+      animation-fill-mode:forwards;
+    }
+  }
+
+  .hamburger.is-closed {
+    .burger-filling {
+      animation: burger-fill-in $animation linear normal;
+      animation-fill-mode:forwards;
     }
   }
 }
 
 @mixin shame-on-me {
+  @include blocks-hamburger;
   @include blocks-offcanvas;
 }

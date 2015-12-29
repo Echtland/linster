@@ -15,6 +15,15 @@ paths = {
   ]
 };
 
+gulp.task('krass', function() {
+  gulp.src([
+    'node_modules/font-awesome/scss/*'
+  ]).pipe(gulp.dest('./_sass/vendor/font-awesome/'));
+  gulp.src([
+    'node_modules/font-awesome/fonts/*'
+  ]).pipe(gulp.dest('./fonts/'));
+});
+
 // The development server (the recommended option for development)
 gulp.task("default", ["build-dev", "serve", "watch"]);
 

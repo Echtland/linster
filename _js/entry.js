@@ -1,4 +1,5 @@
 import * as Mailchimp from './mailchimp';
+import burgerTime from './burgertime';
 
 $('.myform').submit(function(e) {
   e.preventDefault();
@@ -18,24 +19,5 @@ $(document).ready(function() {
     });
   });
 
-
-
-
-  var offcanvasToggle = $('.offcanvas-toggle');
-  offcanvasToggle.on('click', function(ev) {
-    var $this = $(this),
-        offcanvas = $('.offcanvas'),
-        page = $('.page');
-    ev.preventDefault();
-
-    $this.hide();
-    offcanvas.addClass('offcanvas--open');
-    page.addClass('page--blurry');
-
-    offcanvas.before().on('click', (ev) => {
-      offcanvas.removeClass('offcanvas--open');
-      page.removeClass('page--blurry');
-      $this.fadeIn();
-    });
-  });
+  $('#hamburger').burgerTime();
 });
